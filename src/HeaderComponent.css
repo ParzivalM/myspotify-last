@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(75, 83, 117);
+    text-align: left;
+    direction: rtl;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.header p{
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 10px;
+}
