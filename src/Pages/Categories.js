@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import {faMusic} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import "./Category.css"
 
 class Category extends React.Component {
 
@@ -19,7 +22,9 @@ class Category extends React.Component {
         const categoryId = this.props.match !== null ? this.props.match.params.id : 'Unknown';
 
         return (
-            <div>
+            <div className=".icon">
+                <FontAwesomeIcon
+                    icon={faMusic}/>
                 {`Category page for ${ this.props.match !== null ? this.props.match.params.id : 'Unknown' }`}
             </div>
         )
