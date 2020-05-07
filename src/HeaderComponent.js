@@ -6,8 +6,9 @@ class HeaderComponent extends React.Component {
         return(
             <div>
                 <nav className="header">
+                    <p>Home</p>
+                    <p>Login</p>
                     <p>Categories</p>
-                    <p>Artists</p>
                     <p>About</p>
                 </nav>
             </div>
@@ -16,4 +17,4 @@ class HeaderComponent extends React.Component {
 }
 
 
-export default HeaderComponent
+export default HeaderComponent;

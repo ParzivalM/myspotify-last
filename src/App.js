@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LabeledInput from './LabeledInput'
-import { Link, Route, Switch } from 'react-router-dom'
+import LabeledInput from './LabeledInput';
+import {Link, BrowserRouter, Router, Route, Switch} from 'react-router-dom';
 
 import About from './Pages/About';
 import Login from './Pages/Login';
-import Category from './Pages/Category';
+import Categories from './Pages/Categories';
+import HeaderComponent from "./HeaderComponent";
 
 function App() {
 
@@ -27,35 +28,35 @@ function App() {
 
     return (
         <div className="App">
-            <header className="App-header">
-              <nav>
-                  <ul>
-                      <li>
-                          <Link to='/'>Home</Link>
-                      </li>
-                      <li>
-                          <Link to='/login'>Login</Link>
-                      </li>
-                      <li>
-                          <Link to='/About'>About</Link>
-                      </li>
-                  </ul>
-              </nav>
+            <header className=".header" component={HeaderComponent}>
+
+                {/*<nav>
+                    <ul>
+                        <li>
+                            <Link to='/'>Home</Link>
+                        </li>
+                        <li>
+                            <Link to='/login'>Login</Link>
+                        </li>
+                        <li>
+                            <Link to='/About'>About</Link>
+                        </li>
+                    </ul>
+                </nav>*/}
             </header>
             <main>
                 <Switch>
-                <Route path= '/'
-                       exact
-                       render={() => <div>Home Page</div>}/>
+                    <Route path= '/'
+                           render={() => <div>Home Page</div>}/>
 
-                <Route path= '/about'
-                       component = {About}/>
+                    <Route path= '/about'
+                           component = {About}/>
 
-                <Route path= '/login'
-                       component = {Login}/>
+                    <Route path= '/login'
+                           component = {Login}/>
 
-                <Route path= '/categories/:id'
-                       component = {Category}/>
+                    <Route path= '/categories/:id'
+                           component = {Categories}/>
 
                 </Switch>
             </main>

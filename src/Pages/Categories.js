@@ -1,34 +1,17 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import {faMusic} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import "./Category.css"
+import React from "react";
+import CardCategory from "../CardCategory";
+import {Link} from "react-router-dom";
 
-class Category extends React.Component {
+const Categories = () => {
+    return (
+        <div className="Categories">
+            <h1>Categories Page</h1>
+            <Link className="linkCategorie" to="/categories/CardCategory">
+                Category
+            </Link>
+        </div>
+    )
 
-    componentDidMount() {
-        console.log(this.props);
-    }
+};
 
-    render() {
-
-        // let categoryId;
-        // if (this.props.match !== null) {
-        //     categoryId = this.props.match.params.id;
-        // } else {
-        //     categoryId = 'Unknown';
-        // }
-
-        const categoryId = this.props.match !== null ? this.props.match.params.id : 'Unknown';
-
-        return (
-            <div className=".icon">
-                <FontAwesomeIcon
-                    icon={faMusic}/>
-                {`Category page for ${ this.props.match !== null ? this.props.match.params.id : 'Unknown' }`}
-            </div>
-        )
-    }
-}
-
-export default withRouter(Category);
+export default Categories;

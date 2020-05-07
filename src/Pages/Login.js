@@ -28,27 +28,63 @@ class Login extends React.Component {
 
         fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
-            headers: {
-                Authorization: `Basic ${btoa('098c664b47fd48b589b59e186f453a80:00d42f3cea8f496e8bddf5770fd1919a')}`
-            }
+            headers: new Headers({
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: `Basic ${btoa('CLIENT_ID:CLIENT_SECRET')}`
+            }),
+            credentials: 'include',
         }).then( result => {
-
             console.log(result)
-})
+        })
+    }
 
+    onClickHandler = () => {
 
+        const params = {
+            client_id: this.state["client-id"],
+            response_type: 'token',
+            redirect_uri: 'http://localhost:3000/callback'
+        };
+        let queryString = '';
+        Object.keys(params)
+            .forEach(key => {
+                queryString += queryString !== '' ? '&' : '';
+                queryString += encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
+            });
 
-render() {
+        window.location.href = `https://accounts.spotify.com/authorize?${queryString}`;
+    };
+
+    onChangeHandler = (id, value) => {
+
+        const state = {...this.state};
+        state[id] = value;
+
+        this.setState(state);
+    };
+
+    render() {
         return (
             <div>
                 <LabeledInput
-                id = 'client-id'
+                    id="client-id"
+                    label="Client ID"
+                    placeholder="Client ID"
+                    change={this.onChangeHandler}
                 />
-                <LabeledInput
-                    id = 'client-secret'
-                />
-                <button type="button" className="btn btn-primary">Login</button>
-
+                {/*<LabeledInput
+                id="client secret"
+                label="Client Secret"
+                placeholder="Client Secret"
+                change={this.onChangeHandler}
+                />*/}
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={this.onClickHandler}
+                >
+                    Login
+                </button>
             </div>
         )
     }
