@@ -1,63 +1,62 @@
 import React from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import LabeledInput from './LabeledInput';
-import {Link, BrowserRouter, Router, Route, Switch} from 'react-router-dom';
+import LabeledInput from './LabeledInput'
 
-import About from './Pages/About';
-import Login from './Pages/Login';
-import Categories from './Pages/Categories';
-import HeaderComponent from "./HeaderComponent";
+import About from "./Pages/About";
+import Categories from "./Pages/Categories";
+import Category from "./Pages/Category";
+import Login from "./Pages/Login";
+import SpotifyCallback from "./Pages/SpotifyCallback";
 
 function App() {
 
-
-    // return (
-    //     <div className="App">
-    //         <header className="App-header">
-    //             <a href="/categories">Link to  another page </a>
-    //             <LabeledInput
-    //                 id="client-id"
-    //                 label="Client Id"
-    //                 placeholder="Client Id Placeholder"
-    //                 defaultValue="Default"
-    //             />
-    //         </header>
-    //     </div>
-    // );
-
     return (
         <div className="App">
-            <header className=".header" component={HeaderComponent}>
-
-                {/*<nav>
+            <header className="App-header">
+                <nav>
                     <ul>
                         <li>
-                            <Link to='/'>Home</Link>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to='/login'>Login</Link>
+                            <Link to="/about">About</Link>
                         </li>
                         <li>
-                            <Link to='/About'>About</Link>
+                            <Link to="/login">Login</Link>
                         </li>
                     </ul>
-                </nav>*/}
+                </nav>
             </header>
             <main>
                 <Switch>
-                    <Route path= '/'
-                           render={() => <div>Home Page</div>}/>
-
-                    <Route path= '/about'
-                           component = {About}/>
-
-                    <Route path= '/login'
-                           component = {Login}/>
-
-                    <Route path= '/categories/:id'
-                           component = {Categories}/>
-
+                    <Route
+                        path="/"
+                        exact={true}
+                        render={() => (<div>Home page</div>)}
+                    />
+                    <Route
+                        path="/about"
+                        component={About}
+                    />
+                    <Route
+                        path="/login"
+                        component={Login}
+                    />
+                    <Route
+                        path="/categories"
+                        exact
+                        component={Categories}
+                    />
+                    <Route
+                        path="/categories/:id"
+                        component={Category}
+                    />
+                    <Route
+                        path="/callback"
+                        component={SpotifyCallback}
+                    />
                 </Switch>
             </main>
         </div>

@@ -46,9 +46,9 @@ class LabeledInput extends React.Component {
 
     onChangeHandler = e => {
         console.log(e.target.value);
-        const value = e.target.value;
+        const value = e.target.value
 
-        this.props.change(this.props.id, value);
+        this.props.change(this.props.id, value)
 
         this.setState({
             value: value
