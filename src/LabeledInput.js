@@ -1,6 +1,6 @@
 import React from 'react';
-import { faHome, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faHome, faHeart } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import './LabeledInput.css';
 

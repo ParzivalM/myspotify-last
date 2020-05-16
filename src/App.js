@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import LabeledInput from './LabeledInput'
+//import LabeledInput from './LabeledInput'
+import Playlists from "./Pages/Playlists";
+import Tracks from "./Pages/Tracks";
 
 import About from "./Pages/About";
 import Categories from "./Pages/Categories";
@@ -26,6 +28,9 @@ function App() {
                         <li>
                             <Link to="/login">Login</Link>
                         </li>
+                        <li>
+                            <Link to="/categories">Categories</Link>
+                        </li>
                     </ul>
                 </nav>
             </header>
@@ -33,7 +38,7 @@ function App() {
                 <Switch>
                     <Route
                         path="/"
-                        exact={true}
+                        exact
                         render={() => (<div>Home page</div>)}
                     />
                     <Route
@@ -52,6 +57,14 @@ function App() {
                     <Route
                         path="/categories/:id"
                         component={Category}
+                    />
+                    <Route
+                        path="/playlists/:id"
+                        component={Playlists}
+                    />
+                    <Route
+                        path="/tracks/:id"
+                        component={Tracks}
                     />
                     <Route
                         path="/callback"
