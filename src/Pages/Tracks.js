@@ -1,7 +1,9 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
 import Player from "../componente/Player";
+import Track from "../componente/Track";
 import {checkAndReturnToken} from "../componente/utile.js";
+import "./Tracks.css";
 
 
 /*
@@ -79,44 +81,36 @@ this.setState({
                <h1>
                    {playlistName}
                </h1>
-            <section>
+            <section className="content__wrapper">
+             <section className="section__tracks">
+                <ul className="tracks__wrapper">
                 {this.state.tracks.map(track => {
+
+                    const isTrackPicked = track.id === this.state.currentTrackId;
+
                     return (
-                        <section
-                        onClick={(event)=>{
-                            this.onTrackClikedHandler(track.id);
-                        }}>
-                            <h6>
-                                {track.name}
-                            </h6>
-                            <section>
-                                <ul>
-                                {track.artists.map( artist =>{
-                                    return(
-                                        <ol>
-                                            {artist}
-                                        </ol>
-                                    )
-                                })
-                                }
-                                </ul>
-                            </section>
-                            <p>
-                            {track.duration.toFixed(2)}
-                            </p>
-                        </section>
+                        <Track
+                            pickTrack = {this.onTrackClikedHandler}
+                            id = {track.id}
+                            name = {track.name}
+                            artists = {track.artists}
+                            duration = {track.duration}
+                        />
                     )
                 })}
-            </section>
-            <aside>
+                </ul>
+             </section>
+             <section className="section__player">
                 <Player
                  trackId = {this.state.currentTrackId}
                 />
-            </aside>
+             </section>
+            </section>
+        
         </div>
         )
     }
 
 }
 
-export default Tracks;
+export default withRouter (Tracks);

@@ -8,7 +8,7 @@ import Tracks from "./Pages/Tracks";
 
 import About from "./Pages/About";
 import Categories from "./Pages/Categories";
-import Category from "./Pages/Category";
+import Category from "./componente/Category";
 import Login from "./Pages/Login";
 import SpotifyCallback from "./Pages/SpotifyCallback";
 

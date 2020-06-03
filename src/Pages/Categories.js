@@ -1,5 +1,5 @@
 import React from 'react';
-import Category from "./Category";
+import Category from "../componente/Category";
 import  {withRouter} from "react-router-dom";
 import {checkAndReturnToken} from "../componente/utile.js";
 
